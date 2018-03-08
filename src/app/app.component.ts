@@ -9,9 +9,11 @@ import * as moment from 'moment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  toggleFlag: boolean = true;
   currentTime: string;
   title = 'Current Time';
   constructor() {
+    this.toggleFlag = true;
     let now = moment(); 
     console.log('hello world', now.format());
     this.currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -21,13 +23,37 @@ export class AppComponent {
     
   }
   ngOnInit() {
-    $(document).ready(function(){
-        $("button").click(function(){
-            var div = $("div");  
-            div.animate({left: '100px'}, "slow");
-            div.animate({fontSize: '5em'}, "slow");
-        });
+    // Button click handling with jquery
+    $(document).ready(() => {
+      $(".my-btn").click(() => {
+        var div = $("div");
+        if(this.toggleFlag) { 
+          div.animate({left: '100px'}, "slow");
+          div.animate({fontSize: '3em'}, "slow");
+          this.toggleFlag = false;
+        } else {
+          div.animate({left: '8px'}, "slow");
+          div.animate({fontSize: '1em'}, "slow");
+          this.toggleFlag = true;
+        }
+      });
     });
+  }
+
+  animate() {
+    //Button click handling with angular but using jq features inside method
+    var div = $("div");
+    if(this.toggleFlag) { 
+      div.animate({left: '100px'}, "slow");
+      div.animate({fontSize: '3em'}, "slow");
+      this.toggleFlag = false;
+    } else {
+      div.animate({left: '8px'}, "slow");
+      div.animate({fontSize: '1em'}, "slow");
+      this.toggleFlag = true;
+    }
+      
+    
   }
 
 }
