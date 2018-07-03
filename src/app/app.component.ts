@@ -12,6 +12,12 @@ export class AppComponent {
   toggleFlag: boolean = true;
   currentTime: string;
   title = 'Current Time';
+  name = 'slideToggle';
+  id = 'materialSlideToggle';
+  checked = false;
+  disabled = false;
+  label = 'Toggle On/Off';
+  labelledby = 'Some Other Text';
   constructor() {
     this.toggleFlag = true;
     let now = moment(); 
@@ -54,6 +60,10 @@ export class AppComponent {
     }
       
     
+  }
+
+  toggleButtonClick() {
+    this.animate();
   }
 
 }

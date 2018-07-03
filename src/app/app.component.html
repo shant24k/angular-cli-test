@@ -26,3 +26,12 @@
 <div style="background:#98bf21;height:105px;width:200px;position:absolute;padding-left:15px;margin-top:10px">
   jQuery Animate
 </div>
+<material-slide-toggle 
+    [name]="name" 
+    [id]="id" 
+    [checked]="checked" 
+    [disabled]="disabled" 
+    [aria-label]="label" 
+    [aria-labelledby]="labelledby"
+    (change)="toggleButtonClick()">
+</material-slide-toggle>
